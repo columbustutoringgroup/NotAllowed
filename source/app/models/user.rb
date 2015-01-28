@@ -5,7 +5,4 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8 }
   has_secure_password
   before_save { self.email = email.downcase }
-
-  def new
-  end
 end

@@ -1,0 +1,6 @@
+%h1= @user.name
+- if @user.admin
+  %h2 Site Administrator
+%p
+  %strong Email:
+  = @user.email
