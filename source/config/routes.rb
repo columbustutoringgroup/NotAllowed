@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'secret' => 'users#secret'
+  get 'top-secret' => 'admin#secret'
 
   # post 'signup' => 'users#create'
 

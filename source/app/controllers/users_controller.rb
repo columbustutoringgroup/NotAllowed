@@ -20,6 +20,13 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
   end
 
+  def secret
+    unless logged_in?
+      flash.alert = "You are not authorized to view that page."
+      return redirect_to root_url
+    end
+  end
+
   private
     
     def user_params
