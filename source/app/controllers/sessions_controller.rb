@@ -8,10 +8,11 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash.notice = "Success"
+      redirect_to @user.admin ? secret_path : secret_users_path
     else
       flash.notice = "Failure"
+      redirect_to root_path
     end
-    redirect_to root_url
   end
 
   def destroy

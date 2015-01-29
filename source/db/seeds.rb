@@ -11,3 +11,10 @@ User.create(
   password: 'password',
   password_confirmation: 'password'
 )
+
+User.create(
+  admin: true,
+  email: 'admin@example.com',
+  password: 'password',
+  password_confirmation: 'password'
+)

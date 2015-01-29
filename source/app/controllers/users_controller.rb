@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  def show
+  def secret
+    unless session[:user_id] && User.find(session[:user_id])
+      flash.notice = "Not authorized"
+      redirect_to root_path
+    end
   end
 
   def create
