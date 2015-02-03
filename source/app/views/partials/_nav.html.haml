@@ -11,14 +11,10 @@
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
       %ul.nav.navbar-nav.navbar-right
         %li=link_to 'Home', root_url
-        #user_nav 
-          - if @current_user
-            %p 
-              Logged in as
-              = @current_user.email
+        - if @current_user
+          %li= link_to "Logged in as #{@current_user.email}", user_path(@current_user)
 
-              = link_to "Log out", log_out_path
-          - else
-            %p= link_to "Sign up", sign_up_path
-            or
-            %p= link_to "log in", log_in_path
+          %li= link_to "Logout", log_out_path
+        - else
+          %li= link_to "Sign up", sign_up_path
+          %li= link_to "login", log_in_path
