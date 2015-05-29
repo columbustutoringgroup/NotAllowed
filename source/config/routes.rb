@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   resource :session
   resources :users
+
+  get '/admin', to: 'admin#index'
 end

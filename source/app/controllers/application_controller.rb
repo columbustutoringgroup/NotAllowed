@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path, alert: "You must log in first" if !logged_in?
   end
 
+  def check_admin
+    redirect_to current_user, alert: "You must be an admin to view that page!" unless current_user.admin?
+  end
+
   private
 
   def logged_in?
