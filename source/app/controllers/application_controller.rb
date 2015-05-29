@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?, :current_user
 
   def authenticate_user
-    redirect_to "sessions#new" if !logged_in?
+    redirect_to "session#new" if !logged_in?
   end
 
   private
