@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   # before_filter :redirect_if_logged_in
 
   def show
-    
+    redirect_if_logged_in
+    @user = current_user
   end
 
   def new
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to articles_path
+      redirect_to user_path(@user)
     else
       render 'new'
     end
@@ -25,6 +26,6 @@ class UsersController < ApplicationController
   end
 
   def redirect_if_logged_in
-    redirect_to root_path if logged_in?
+    redirect_to root_path if logged_in? == false
   end
 end
