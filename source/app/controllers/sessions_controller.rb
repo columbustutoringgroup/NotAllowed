@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if session[:user_id]
+    if logged_in?
       session[:user_id] = nil
     end
 
