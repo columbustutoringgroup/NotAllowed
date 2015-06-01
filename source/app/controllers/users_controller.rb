@@ -6,6 +6,13 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def admin
+    if current_user.email != "admin@mail.com"
+      flash[:error] = "You are not an Administrator Fool!"
+      redirect_to root_path 
+    end
+  end
+
   def new
     @user = User.new  
   end

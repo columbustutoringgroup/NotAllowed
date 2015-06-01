@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "/login" => "sessions#create", as: "login"
   get "/login" => "sessions#new"
   delete "/logout" => "sessions#destroy", as: "logout"
+  get "/admin" => "users#admin", as: "admin"
 
   resources :users, only: [:index, :show, :new, :create]
 
