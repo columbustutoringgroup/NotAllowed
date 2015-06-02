@@ -1,0 +1,6 @@
+- if logged_in?
+  %h2 You are already logged in.
+- else
+  = form_for(:session, url: login_path) do |f|
+    = render partial: 'users/form', locals: {f: f}
+    = f.submit 'Login'

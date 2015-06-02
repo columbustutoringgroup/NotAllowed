@@ -1,11 +1,3 @@
 %h1 this should be your index page
 %p it should have a login form that requests an email address and password
-= form_for(:session, url: login_path) do |f|
-  = f.label :email
-  = f.text_field :email
-  = f.label :password
-  = f.password_field :password
-  = f.label 'Confirm'
-  = f.password_field :password_confirm
-  = f.submit 'Login'
 %p don't forget to implement your navigation buttons

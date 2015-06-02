@@ -12,11 +12,4 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
-
-  def authenticate_user
-    unless logged_in?
-      redirect_to 'root', alert: "Please log in."
-      return false
-    end
-  end
 end
