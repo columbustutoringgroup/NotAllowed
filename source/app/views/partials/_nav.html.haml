@@ -12,6 +12,7 @@
       %ul.nav.navbar-nav.navbar-right
         %li=link_to 'Home', root_url
         - if logged_in?
+          %li=(link_to "Admin", admin_path) if current_user.admin?
           %li=link_to "Dashboard", user_path(current_user)
           %li=link_to "Logout", logout_path, method: :post
         - else

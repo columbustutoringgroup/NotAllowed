@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  enum role: {user: 0, admin: 100}
+
+  validates :email, uniqueness: true
+
   def password
     @password ||= BCrypt::Password.new(password_digest)
   end

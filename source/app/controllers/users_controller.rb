@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, :authorize, only: [:show]
+  before_action :set_user, only: [:show, :admin]
+  before_action :authorize, only: [:show]
+  before_action :restrict_to_admin, only: [:admin]
 
   def new
     @user = User.new
@@ -18,6 +20,9 @@ class UsersController < ApplicationController
   def show
   end
 
+  def admin
+  end
+
   private
 
   def user_params
@@ -29,6 +34,10 @@ class UsersController < ApplicationController
   end
 
   def authorize
-    (redirect_to root_path, alert: "You are not logged in as that user.") unless current_user.id == params[:id].to_i
+    (redirect_to @user, alert: "You are not logged in as that user.") unless current_user.id == params[:id].to_i
+  end
+
+  def restrict_to_admin
+    (redirect_to @user, alert: "You are not an admin.") unless current_user.admin?
   end
 end

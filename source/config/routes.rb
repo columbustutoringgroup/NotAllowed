@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'sessions#new'
+  get 'admin' => 'users#admin', as: 'admin'
   resources :users
   resources :sessions
+
   get 'login' => 'sessions#new', as: 'login'
   post 'login' => 'sessions#create'
   post 'logout' => 'sessions#destroy', as: 'logout'
