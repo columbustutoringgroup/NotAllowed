@@ -2,3 +2,12 @@
 %p it should have a login form that requests an email address and password 
 
 %p don't forget to implement your navigation buttons
+
+- flash.each do |key, value|
+  %p #{key} - #{value}
+
+%form{ action: '/sessions', method: 'post'}
+  %input email
+  %br
+  %input password
+  %input.button{type: 'submit'}
