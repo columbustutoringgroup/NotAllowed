@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'sessions#index'
+  get 'sessions' => 'sessions#index'
   post '/' => 'sessions#create'
   post 'sessions' => 'sessions#create'
-  get 'sessions' => 'sessions#index'
   post 'users' => 'users#create'
   delete 'sessions' => 'sessions#destroy'
+  get 'admin' => 'admin#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
