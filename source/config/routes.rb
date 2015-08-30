@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post '/' => 'sessions#create'
   post 'sessions' => 'sessions#create'
   get 'sessions' => 'sessions#index'
+  post 'users' => 'users#create'
+  delete 'sessions' => 'sessions#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

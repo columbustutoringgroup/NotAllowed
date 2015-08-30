@@ -11,5 +11,5 @@
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
       %ul.nav.navbar-nav.navbar-right
         %li=link_to 'Home', root_url
-        %li=link_to "Logout", "#" 
-        %li=link_to "Login", "#" 
+        %li=link_to "Logout", "/sessions", method: 'delete', action: 'destroy'
+        %li=link_to "Login", "/sessions#index"
