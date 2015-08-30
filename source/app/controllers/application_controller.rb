@@ -35,4 +35,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authorize_user
+    if current_user.admin?
+      puts 'ADMIN PASS'
+    else
+      puts 'AUTHORIZATION FAILED'
+      flash[:error] = "you need to be an admin"
+      redirect_to '/sessions#index'
+    end
+  end
+
 end
