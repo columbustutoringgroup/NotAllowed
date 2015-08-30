@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
     else
       puts 'AUTHORIZATION FAILED'
       flash[:error] = "you need to be an admin"
-      redirect_to '/sessions#index'
+      redirect_to '/users'
     end
   end
 
