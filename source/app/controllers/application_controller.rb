@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       puts 'NOT LOGGED IN'
       user = User.find_by_email(params[:email])
       puts user
-      puts params[:password] + " is the password"
+      puts params[:password] + " is the password" if params[:password]
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect_to '/'
