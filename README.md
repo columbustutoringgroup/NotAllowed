@@ -10,13 +10,13 @@ Update the `User` model and migration to handle both regular users and at least 
   - Use Haml & SASS
 
 ###Functionality
-1. Logging in
-2. Logging out
-3. Creating an account
-4. Viewing the secret dashboard page for logged in users
-5. Viewing a secret page for administrators 
-6. Redirecting a user back to the "log in" screen if they try to view the secret page without being logged in
-7. Redirecting a regular user back to their "dashboard" screen or prompting them with a `flash` message if they try to view the administrator page
+x1. Logging in
+x2. Logging out
+x3. Creating an account
+x4. Viewing the secret dashboard page for logged in users
+x5. Viewing a secret page for administrators 
+x6. Redirecting a user back to the "log in" screen if they try to view the secret page without being logged in
+x7. Redirecting a regular user back to their "dashboard" screen or prompting them with a `flash` message if they try to view the administrator page
 
 __NOTE:__ Don't worry about populating your views with too much data just get down the basic functionality.
 
