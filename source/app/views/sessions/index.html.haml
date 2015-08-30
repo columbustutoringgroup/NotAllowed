@@ -7,8 +7,21 @@
   %p #{key} - #{value}
 
 %form{ action: '/sessions', method: 'post'}
-  %input email
+  %input{name: 'email'} email
   %br
-  %input password
+  %input{name: 'password'} password
   = token_tag nil
-  %input.button{type: 'submit'}
+  %input.button{type: 'submit', value: 'Log in'}
+
+- if current_user
+  %p logged in as #{current_user.email}
+
+%br
+%h4 Sign up
+%form{ action: '/users', method: 'post'}
+  %input{name: 'email'} email
+  %br
+  %input{name: 'password'} password
+  = token_tag nil
+  %input.button{type: 'submit', value: 'Sign up'}
+
