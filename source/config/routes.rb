@@ -6,13 +6,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'sessions#index'
-  post '/' => 'sessions#create'
-  get 'sessions' => 'sessions#index'
-  post 'sessions' => 'sessions#create'
-  delete 'sessions' => 'sessions#destroy'
-  get 'users' => 'users#show'
-  post 'users' => 'users#create'
-  get 'admin' => 'admin#show'
+
+  resources :sessions, only: [:index]
+  resource :sessions, only: [:index, :create, :destroy]
+
+  resources :users, only: [:create]
+  resource :users, only: [:show]
+
+  resource :admin, only: [:show], controller: 'admin'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
