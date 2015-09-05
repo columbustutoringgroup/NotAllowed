@@ -1,0 +1,7 @@
+%h1 dashboard for logged in users only
+
+%p i guess you must be logged in
+
+- flash.each do |key, value|
+  %p #{key} - #{value}
+
