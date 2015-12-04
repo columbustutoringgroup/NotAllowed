@@ -6,8 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password])
-      current_user = user
-      
+      session[:current_user_id] = user.id
       redirect_to user
     else
       render 'index'
@@ -15,12 +14,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:current_user_id] = nil
+    redirect_to root_url
   end
-
-  # def log_in
-  #   session[user_id] = user.id
-  # end
-
-  # def 
 
 end

@@ -12,7 +12,10 @@
       %ul.nav.navbar-nav.navbar-right
         %li=link_to 'Home', root_url
         - if logged_in?
-          %li=link_to "Logout", "#" 
+          %li=link_to "Logout", logout_path, method: :delete
+          %li 
+            User ID: 
+            = session[:current_user_id]
         - else
-          %li=link_to "Login", "#"
-          %li=link_to "Sign up", '#'
+          %li=link_to "Login", sessions_path
+          %li=link_to "Sign up", new_user_path
