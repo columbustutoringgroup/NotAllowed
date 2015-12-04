@@ -9,6 +9,9 @@
 
     = render 'partials/nav'
     .container.primary-body
+      - flash.each do |message_type, message|
+        = message
+
       = yield
 
     = params
