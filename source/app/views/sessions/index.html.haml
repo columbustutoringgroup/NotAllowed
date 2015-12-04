@@ -1,8 +1,13 @@
-%h1 Log in Form
+-if logged_in?
+  %h1 Secret Dashboard for if you're logged in!!!!
+  %img(src="http://www.ppc-essentials.com/wp-content/uploads/2014/03/Analytics-Dashboard.jpg")
 
-= form_for :session, url: sessions_path do |f|
-  %p
-    = f.text_field :username 
-  %p
-    = f.password_field :password
-  = f.submit "Log in"
+-else
+  %h1 Log in Form
+
+  = form_for :session, url: sessions_path do |f|
+    %p
+      = f.text_field :username 
+    %p
+      = f.password_field :password
+    = f.submit "Log in"
