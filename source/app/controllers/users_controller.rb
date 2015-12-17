@@ -18,8 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      user_id = User.find_by(user_name: @user[:user_name]).id
-      session[:user_id] = user_id
+      session[:user_id] = @user.id
       redirect_to current_user
     else
       redirect_to signup_path
