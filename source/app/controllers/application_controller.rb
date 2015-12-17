@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
+    session[:user]
   end
 
   def authenticate_user
