@@ -1,25 +1,28 @@
 class SessionsController < ApplicationController
 
   def index
-    check if the user is logged in
-      yes: redirect to appropriate secret user page
-      otherwise display login page (sessions/index)
+    redirect_to current_user if logged_in?
   end
 
   def create
-    # reminder on authenticate:
-    # compares bcrypt hash of password to password_digest
-    # stored in the User model
-    # if these are equal, returns the user object
-    # otherwise returns false
+    user_name = params[:session][:user_name]
+    password  = params[:session][:password]
+    user = User.find_by(user_name: user_name)
 
-    session[:user] = User.authenticate(user_name, password)
-    redirect_to ...
+    if user && user.authenticate(password)
+      log_in user
+      redirect_to user
+    else
+      redirect_to login_path
+    end
   end
 
   def destroy
     reset_session
-    redirect_to login page
+    redirect_to login_path
   end
+
+  private
+
 
 end

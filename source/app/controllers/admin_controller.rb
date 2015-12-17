@@ -1,13 +1,15 @@
 class AdminController < ApplicationController
-  def show
-    check that the current user is an admin
-      if they are not, redirect to the "you're not an admin" page
-      otherwise go to admin page layouts/admims/show
+  def index
+    redirect_to not_an_admin_path unless is_admin?
+  end
+
+  def not_an_admin
   end
 
   private
 
-  def is_admin? user
-    user.user_type == 'admin'
+  def is_admin?
+    return false if current_user.nil?
+    current_user.user_type == 'admin'
   end
 end
