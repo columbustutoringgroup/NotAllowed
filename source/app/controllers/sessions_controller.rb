@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to user
     else
-      redirect_to login_path
+      flash[:notice] = "Invalid username or password"
+      render 'index'
     end
   end
 
@@ -21,8 +22,4 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to login_path
   end
-
-  private
-
-
 end

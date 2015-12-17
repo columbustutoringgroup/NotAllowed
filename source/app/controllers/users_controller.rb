@@ -4,8 +4,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    if owns_account? or is_admin?
-      @user = User.find(params[:id])
+    selected_user_id = params[:id].to_i
+
+    if current_user.id == selected_user_id || current_user.admin?
+      @user = User.find(selected_user_id)
     else
       redirect_to login_path
     end
@@ -21,15 +23,11 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to current_user
     else
-      redirect_to signup_path
+      render 'new'
     end
   end
 
   private
-
-    def owns_account?
-      params[:id].to_i == current_user.id
-    end
 
     def user_params
       params.require(:user).permit(:user_name, :password, :password_confirmation)

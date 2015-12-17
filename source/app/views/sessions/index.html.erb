@@ -1,4 +1,9 @@
 <%= form_for(:session, url: login_path) do |f| %>
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
   <%= f.label :user_name %>
   <%= f.text_field :user_name %>
 
