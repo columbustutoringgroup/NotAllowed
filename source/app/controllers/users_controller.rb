@@ -18,10 +18,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user] = @user
-      redirect_to user_path(@user)
+      user_id = User.find_by(user_name: @user[:user_name]).id
+      session[:user_id] = user_id
+      redirect_to current_user
     else
-      redirect_to root_path
+      redirect_to signup_path
     end
   end
 
@@ -29,5 +30,9 @@ class UsersController < ApplicationController
 
     def owns_account?
       params[:id].to_i == current_user.id
+    end
+
+    def user_params
+      params.require(:user).permit(:user_name, :password, :password_confirmation)
     end
 end
