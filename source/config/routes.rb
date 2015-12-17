@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   post   'login'  => 'sessions#create'
   get    'logout' => 'sessions#destroy'
   get    'admin'  => 'admin#index'
-  get    'not_an_admin' => 'admin#not_an_admin'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
