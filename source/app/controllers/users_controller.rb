@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       session[:user] = @user
       redirect_to user_path(@user)
     else
-      render 'index'
+      redirect_to root_path
     end
   end
 
