@@ -1,8 +1,9 @@
 class AdminController < ApplicationController
   def index
-    unless is_admin?
+    unless current_user.admin?
       flash[:notice] = "You are not an admin!!!! Ha ha ha ha!!!!"
-      redirect_to root_path
+      @user = current_user
+      render '/users/show'
     end
   end
 end

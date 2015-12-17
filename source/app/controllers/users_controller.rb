@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    selected_user_id = params[:id].to_i
+    selected_user_id = params[:id].to_i || current_user.id
 
     if current_user.id == selected_user_id || current_user.admin?
       @user = User.find(selected_user_id)
