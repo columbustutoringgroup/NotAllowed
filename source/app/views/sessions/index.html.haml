@@ -1,4 +1,9 @@
-%h1 this should be your index page
-%p it should have a login form that requests an email address and password 
+= form_tag('login', method: 'post') do
+  = label_tag :email
+  = text_field_tag :email
+  %br
+  = label_tag :password
+  = password_field_tag :password
+  = submit_tag "Login"
 
-%p don't forget to implement your navigation buttons
+%p= link_to 'Sign Up', '/signup'
