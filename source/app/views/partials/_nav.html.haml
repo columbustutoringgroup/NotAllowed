@@ -11,9 +11,9 @@
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
       %ul.nav.navbar-nav.navbar-right
         %li=link_to 'Home', root_url
-        - if !session[:is_admin].nil?
+        - if is_admin
           %li=link_to('Admin', '/admin')
-        - if !session[:user_id].nil?
+        - if is_signed_in
           %li=link_to('Logout', '/logout', method: "delete")
-        - if session[:user_id].nil?
+        - if !is_signed_in
           %li=link_to("Login", "/login")

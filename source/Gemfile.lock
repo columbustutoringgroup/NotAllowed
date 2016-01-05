@@ -27,9 +27,11 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (3.1.2.20141016)
       execjs
+    awesome_print (1.6.1)
     bcrypt (3.1.7)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
@@ -57,6 +59,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    faker (1.6.1)
+      i18n (~> 0.5)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -68,6 +72,8 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
@@ -151,6 +157,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  awesome_print
   bcrypt
   bootstrap-sass (~> 3.2.0)
   byebug
@@ -158,9 +165,11 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   factory_girl_rails
+  faker
   haml
   jbuilder (~> 2.0)
   jquery-rails
+  launchy
   rails (= 4.1.6)
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
