@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/profile'   => 'users#show'
   get '/signup'    => 'users#new'
+  get '/login'     => 'sessions#new'
+  get '/admin'     => 'admins#show'
   post   '/login'   => 'sessions#create'
   delete '/logout'  => 'sessions#destroy'
 

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(session[:user_id]) if session[:user_id]
     if @user.nil?
+      flash[:not_logged_in_error] = 'You cannot access this page, because you are not logged in.'
       redirect_to '/'
     end
   end

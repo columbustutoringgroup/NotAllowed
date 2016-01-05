@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
 
-  def index
+  def new
     @user = User.new
+  end
+
+  def index
   end
 
   def create
@@ -13,7 +16,8 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to '/profile'
+      session[:is_admin] = @user.is_admin
+      redirect_to '/profile' and return
     end
 
     flash[:login_error] = 'Incorrect Email or Password'
@@ -25,6 +29,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:is_admin] = nil
     flash[:logout] = 'You have been successfully logged out.'
     redirect_to '/'
   end
