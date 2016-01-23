@@ -13,7 +13,7 @@
         %li=link_to 'Home', root_url
         - if is_admin
           %li=link_to('Admin', '/admin')
-        - if is_signed_in
+        - if signed_in?
           %li=link_to('Logout', '/logout', method: "delete")
-        - if !is_signed_in
+        - if !signed_in?
           %li=link_to("Login", "/login")

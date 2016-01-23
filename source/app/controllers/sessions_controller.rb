@@ -11,18 +11,19 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(params[:email])
     if @user.nil?
       flash[:login_error] = 'Login Error occured'
-      redirect_to '/' and return
+      redirect_to '/'
+      return
     end
 
-    if @user && @user.authenticate(params[:password])
+    if @user.authenticate(params[:password])
       session[:user_id] = @user.id
       session[:is_admin] = @user.is_admin
-      redirect_to '/profile' and return
+      redirect_to '/profile'
+      return
     end
 
     flash[:login_error] = 'Incorrect Email or Password'
-    redirect_to '/' and return
-
+    redirect_to '/'
   end
 
 

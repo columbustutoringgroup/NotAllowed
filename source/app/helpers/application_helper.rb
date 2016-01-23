@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def is_signed_in
+  def signed_in?
     !session[:user_id].nil?
   end
 
