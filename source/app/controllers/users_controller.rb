@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to root_path, notice: "Successfully created #{@user.username}'s account!'"
+    session[:user] = {username: @user.username, id: @user.id}
+    redirect_to dashboard_url
   end
 
   def show
@@ -15,6 +16,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:id, :username, :password, :password_confirmation)
+    params.require(:user).permit(:id, :admin, :username, :password, :password_confirmation)
   end
 end
