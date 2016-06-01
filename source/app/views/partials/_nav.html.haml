@@ -8,8 +8,10 @@
       %span.icon-bar
       %a{ class: "navbar-brand", href: "/" }
         Super App
+        - if session[:user]
+          = "(#{session[:user]["username"]})"
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
       %ul.nav.navbar-nav.navbar-right
-        %li=link_to 'Home', root_url
-        %li=link_to "Logout", "#" 
-        %li=link_to "Login", "#" 
+        %li=link_to 'Dashboard', dashboard_url if session[:user]
+        %li=link_to "Logout", logout_url, method: :delete if session[:user]
+        %li=link_to "Login", sessions_url unless session[:user]

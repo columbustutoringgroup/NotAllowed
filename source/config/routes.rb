@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :admin, :sessions, :users
   get 'dashboard' => 'sessions#dashboard'
+  delete 'logout' => 'sessions#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
