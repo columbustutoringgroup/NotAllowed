@@ -1,15 +1,15 @@
-#Not Allowed
+# Not Allowed
 
 __Skill Level:__ Intermediate  
 __Time Limit:__ 1-2 hours
 
 There are a number of authentication solutions that offer quick and somewhat painless user management with features such as encryption, email confirmation, and password reset. The object of this drill is to learn and use some of the underlying methods Rails provides to manage session, cookies & encryption. 
 
-##Instructions
+## Instructions
 Update the `User` model and migration to handle both regular users and at least one administrator. Your controllers should support a few core actions:
   - Use Haml & SASS
 
-###Functionality
+### Functionality
 1. Logging in
 2. Logging out
 3. Creating an account
@@ -20,7 +20,7 @@ Update the `User` model and migration to handle both regular users and at least 
 
 __NOTE:__ Don't worry about populating your views with too much data just get down the basic functionality.
 
-##Resources
+## Resources
 - [Haml Docs](http://haml.info/)
 - [Base#session](http://api.rubyonrails.org/classes/ActionController/Base.html)
 - [Session](http://guides.rubyonrails.org/action_controller_overview.html#session)
