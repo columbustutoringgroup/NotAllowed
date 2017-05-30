@@ -10,6 +10,8 @@
         Super App
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
       %ul.nav.navbar-nav.navbar-right
-        %li=link_to 'Home', root_url
-        %li=link_to "Logout", "#" 
-        %li=link_to "Login", "#" 
+        %li= link_to 'Home', root_path
+        - if session[:user_id]
+          %li= link_to 'Logout', session_path(User.find(session[:user_id])), method: :delete
+        - else
+          %li= link_to 'Login', root_path
