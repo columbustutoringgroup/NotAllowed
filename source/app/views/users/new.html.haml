@@ -1,0 +1,16 @@
+%h1 New User
+%div.wrap-center
+  -if @user.errors.any?
+    %div#error_expl
+    =pluralize(@user.errors.count, "error")
+    prohibited user from being created:
+    -@user.errors.full_messages.each do |msg|
+      %ul
+        %li= msg
+
+  =form_for @user do |f|
+    %p= f.text_field :name, placeholder: 'name'
+    %p= f.text_field :email, placeholder: 'email'
+    %p= f.password_field :password, placeholder: 'password'
+    %p= f.password_field :password_confirmation, placeholder: 'password confirmation'
+    =f.submit 'Sign Up'

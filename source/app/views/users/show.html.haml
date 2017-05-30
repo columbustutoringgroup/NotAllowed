@@ -1,0 +1,7 @@
+%h2 The Secret Dashboard for:
+%h2= @user.name
+%h3= @user.email
+
+- if @user.email == "admin@mail.com"
+  %p= link_to "Admin Page", admin_path
+

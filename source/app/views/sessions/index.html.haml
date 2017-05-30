@@ -1,4 +1,11 @@
-%h1 this should be your index page
-%p it should have a login form that requests an email address and password 
+/ %h1 this should be your index page
+/ %p it should have a login form that requests an email address and password 
 
-%p don't forget to implement your navigation buttons
+/ %p don't forget to implement your navigation buttons
+
+%h1 This is "Not Allowed" challenge 
+%h3 Login using the navbar
+
+%div.wrap-center
+  -if flash[:error]
+    %p= flash[:error]
