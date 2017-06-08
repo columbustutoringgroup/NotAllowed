@@ -1,4 +1,10 @@
-%h1 this should be your index page
-%p it should have a login form that requests an email address and password 
+%h1 Sign In
 
-%p don't forget to implement your navigation buttons
+= form_for(@user, url: sessions_path, method: :post) do |u|
+  = u.label :username
+  = u.text_field :username
+
+  = u.label :password
+  = u.password_field :password
+
+  = u.submit "Log in"

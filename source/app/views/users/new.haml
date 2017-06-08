@@ -1,0 +1,16 @@
+%h1 Sign Up
+
+= form_for @user do |u|
+  = u.label :username
+  = u.text_field :username
+
+  = u.label :password
+  = u.password_field :password
+
+  = u.label :password_confirmation
+  = u.password_field :password_confirmation
+
+  = u.label :admin
+  = u.check_box :admin
+
+  = u.submit "Sign Up"

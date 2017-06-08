@@ -9,5 +9,7 @@
 
     = render 'partials/nav'
     .container.primary-body
+      - if flash[:notice]
+        .notice
+          = flash[:notice]
       = yield
-
