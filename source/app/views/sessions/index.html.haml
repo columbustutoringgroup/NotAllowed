@@ -1,4 +1,13 @@
-%h1 this should be your index page
-%p it should have a login form that requests an email address and password 
+-if logged_in?
+  %h1 Secret Dashboard for if you're logged in!!!!
+  %img(src="http://www.ppc-essentials.com/wp-content/uploads/2014/03/Analytics-Dashboard.jpg")
 
-%p don't forget to implement your navigation buttons
+-else
+  %h1 Log in Form
+
+  = form_for :session, url: sessions_path do |f|
+    %p
+      = f.text_field :username 
+    %p
+      = f.password_field :password
+    = f.submit "Log in"

@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'sessions#index'
+  delete 'logout' => 'sessions#destroy'
+  get 'admin' => 'admin#show'
+  resources :sessions, only: [:create, :destroy, :index]
+  resources :users, only: [:new, :create, :show]
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
