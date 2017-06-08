@@ -1,0 +1,5 @@
+= form_for(@user) do |f|
+  = render partial: 'users/form', locals: {f: f}
+  = f.label 'Confirm'
+  = f.password_field :password_confirm
+  = f.submit 'Register'
