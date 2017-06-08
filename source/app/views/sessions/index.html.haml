@@ -1,4 +1,14 @@
-%h1 this should be your index page
-%p it should have a login form that requests an email address and password 
+%h1 Welcome!
+%h2 Secret pages await...
+.row
+  .col-md-9
+    %p Donec pharetra feugiat fringilla. Vivamus a aliquet nisi. Fusce ac euismod ipsum. Praesent pellentesque libero et lacus congue faucibus. Proin eget ex auctor, vestibulum mi in, bibendum nisl. Nulla facilisi. Mauris rutrum libero sit amet turpis scelerisque, ut elementum augue tempor. Curabitur gravida lacus sit amet mi euismod, id consectetur sem venenatis.
+    %p Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eget iaculis elit, vel tincidunt dolor. Vivamus et ante egestas, molestie diam quis, malesuada augue. Phasellus posuere mauris nec dui commodo, sit amet venenatis lorem aliquet. Sed pretium nulla non mauris tincidunt auctor. Curabitur sollicitudin lectus ut magna dictum, ac mollis sem vestibulum. Sed pellentesque tortor ullamcorper, blandit sapien sit amet, convallis metus. Vivamus luctus, mauris eget semper fringilla, elit enim suscipit dui, eget vulputate ante mauris vel dui. Quisque suscipit molestie massa non vulputate. Maecenas arcu nisi, pharetra vel felis at, egestas scelerisque nulla. Duis eu venenatis lacus.
+    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus condimentum vel leo eu accumsan. Suspendisse molestie id ante vitae vulputate. Suspendisse egestas sollicitudin justo, venenatis rhoncus leo gravida ac. Vestibulum eget luctus turpis, vel dictum felis. Maecenas feugiat pellentesque mauris sit amet varius. Sed sodales magna in est pellentesque ullamcorper. Quisque eleifend semper metus at consequat. Donec scelerisque nibh quis eros malesuada, convallis dictum felis condimentum. Nunc a arcu efficitur, lacinia dui hendrerit, condimentum risus. Donec bibendum augue et laoreet molestie. Proin et nisi semper, congue turpis pretium, condimentum metus. Morbi scelerisque, urna in suscipit tristique, elit turpis malesuada dolor, ut scelerisque tellus mauris ut nisi.
+  .col-md-3
+    - if logged_in? 
+      %strong Welcome back, #{current_user.name}!
+    - else
+      = render 'sessions/form'
 
-%p don't forget to implement your navigation buttons
+

@@ -1,0 +1,9 @@
+- if @session.errors.any?
+  #error_explanation
+    .alert.alert-danger
+      The form contains
+      = succeed '.' do
+        = pluralize @session.errors.count, "error"
+    %ul
+      - @users.errors.full_msesages.each do |message}
+      %li= message
