@@ -8,6 +8,11 @@
   %body
 
     = render 'partials/nav'
+
     .container.primary-body
+      - if flash.any?
+        %div.errors
+          - flash.each do |_, message|
+            %p= message
       = yield
 

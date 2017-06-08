@@ -1,0 +1,7 @@
+%h1 Login
+
+= form_for :session, url: { action: "create" }do |f|
+  = f.email_field :email, placeholder: "Email"
+  = f.password_field :password, placeholder: "Password"
+  %br
+  = f.submit "Login"
