@@ -1,4 +1,3 @@
-%h1 this should be your index page
-%p it should have a login form that requests an email address and password 
-
-%p don't forget to implement your navigation buttons
+%p This is the front page!
+-if signed_in?
+  = link_to 'Profile', '/profile'

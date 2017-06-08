@@ -1,0 +1,10 @@
+= form_for @user, :url => { :action => "create" } do |t|
+  = label_tag :email
+  = t.text_field :email
+  %br
+  = label_tag :password
+  = t.password_field :password
+  %br
+  = label_tag :password_confirmation
+  = t.password_field :password_confirmation
+  = t.submit "Sign Up"
