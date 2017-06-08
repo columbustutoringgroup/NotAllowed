@@ -7,8 +7,22 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  helper_method :current_user
+
+  def authorize
+    if current_user.nil?
+      flash.alert = "Not authorized!"
+      redirect_to login_url
+    end
   end
 
-  def authenticate_user
+  def administrator?
+    if !current_user.admin?
+      flash.alert = "Not an administrator!"
+      redirect_to root_url
+    end
   end
+      
 end
